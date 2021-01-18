@@ -1,0 +1,46 @@
+openapi: '3.0.2'
+info:
+  title: SII Login
+  version: '1.0'
+servers:
+  - url: https://www4c.sii.cl/claveunicaauthui/
+paths:
+  /#/login/:
+    parameters:
+      - in: query
+        name: response_type
+        schema:
+          type: string
+          default: code
+        required: true
+        description: valor por defecto "code".
+      - in: query
+        name: clieent_id
+        schema:
+          type: string
+        required: true
+        description: id de cliente entregado en el enrolamiento
+      - in: query
+        name: redirect_uri
+        schema:
+          type: string
+        required: true
+        description: url callback entregado en el enrolamiento
+      - in: query
+        name: scope
+        schema:
+          type: string
+        required: true
+        description: rut%20dv%20rzSoc%20IP%20fecha%20hora
+      - in: query
+        name: state
+        schema:
+          type: string
+        required: true
+        description: UUID + rut_contributente
+    get:
+      summary: Acceso a portal de autenticacion 
+      responses:
+        '200':
+          description: Redirecciona a redirect_uri con callback de autorizacion
+         

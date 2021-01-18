@@ -1,6 +1,6 @@
 openapi: '3.0.2'
 info:
-  title: API Title
+  title: Backend Service
   version: '1.0'
 servers:
   - url: https://backend/v1
@@ -15,9 +15,3 @@ paths:
       responses:
         '200':
           description: Call back de autorizacion de autentificacion
-  /actividades.economicas:
-    get:
-      responses:
-        '200':
-          description: Devuelve actividades economicas del cliente
- 

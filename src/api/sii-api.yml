@@ -1,0 +1,50 @@
+openapi: '3.0.2'
+info:
+  title: SII Services
+  version: '1.0'
+servers:
+  - url: https://apicert.sii.cl/recursos/v1/
+paths:
+  /globales/actividades.economicas:
+    get:
+      summary: Solicita actividades economicas
+      operationId: getActidadesEconomicas
+      parameters:
+        - in: header
+          name: Authorization
+          schema:
+            type: string
+            format: string
+            example: Bearer {access_token} 
+          required: true
+      responses:
+        '200':
+          description: Devuelve actividades economicas
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                      example: 1
+                    codigo:
+                        type: integer
+                        example: 011101
+                    description:
+                      type: string
+                      example: CULTIVO DE TRIGO                    
+components:
+  securitySchemes:
+    oAuth:
+      type: oauth2
+      flows:
+        implicit:
+          authorizationUrl: https://ws2.sii.cl:9093/APPRSOASIICERT/services/getAccessToken
+          scopes:
+            getActidadesEconomicas: Devuelve actividades economicas
+security:
+  - oAuth:
+    - getActidadesEconomicas

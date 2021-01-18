@@ -1,0 +1,64 @@
+openapi: '3.0.2'
+info:
+  title: Autorizacion Service
+  version: '1.0'
+servers:
+  - url: https://ws2.sii.cl:9093
+paths:
+  /APPRSOASIICERT/services/getAccessToken:
+    post:
+      summary: Solicita Autorización
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                grant_type:
+                  type: string
+                  description: authorization_code (Dato por defecto)
+                code:
+                  type: string
+                  description: code o token de autorización
+                client_id:
+                  type: string
+                  description: id de cliente entregado en el enrolamiento
+                client_secret:
+                  type: string
+                  description: secreto de cliente entregado en el enrolamiento
+                redirect_uri:
+                  type: string
+                  description: URL callback entregado en el enrolamiento                
+      responses: 
+        '200':
+          description: Autorizacion otorgada
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  access_token:
+                    type: string
+                    example: MLVG8QN4VJE6E89OBDXVJI1C9U6VCA88
+                    description: Token de acceso para consultar los datos del contribuyente
+                  token_type:
+                    type: string
+                    example: bearer
+                    description: Tipo de token en este caso siempre es berear
+                  expires_in:
+                    type: integer
+                    example: 99
+                    description: El tiempo que dura el token
+                  refresh_token:
+                    type: string
+                    example: UKEL1XO4DM4LB5W35HOL5WTWF2CK1VCQ
+                    description: Clave también proporcionada por el servidor de autorización a la aplicación que permite solicitar nuevos access token
+
+                  
+                    
+
+
+                      
+
+                    
