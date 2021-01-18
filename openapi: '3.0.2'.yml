@@ -1,0 +1,23 @@
+openapi: '3.0.2'
+info:
+  title: API Title
+  version: '1.0'
+servers:
+  - url: https://backend/v1
+paths:
+  /auth:
+    get:
+      responses:
+        '200':
+          description: Redireccion a portal SII
+  /call-back:
+    post:
+      responses:
+        '200':
+          description: Call back de autorizacion de autentificacion
+  /actividades.economicas:
+    get:
+      responses:
+        '200':
+          description: Devuelve actividades economicas del cliente
+ 
