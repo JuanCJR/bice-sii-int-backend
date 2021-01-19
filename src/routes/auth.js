@@ -1,6 +1,6 @@
 const { Router } = require("express");
 const router = Router();
-const { auth, oauth } = require("../controllers/auth.controller");
+const { auth, callBack } = require("../controllers/auth.controller");
 
 
 /**
@@ -16,6 +16,6 @@ const { auth, oauth } = require("../controllers/auth.controller");
 router.route("/").get(auth);
 
 
-router.get("/oauth");
+router.route("/call-back").get(callBack);
 
 module.exports = router;

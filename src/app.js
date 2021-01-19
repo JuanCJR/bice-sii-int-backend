@@ -4,7 +4,6 @@ const cors = require("cors");
 const app = express();
 const swaggerJsDoc = require("swagger-jsdoc"); //Libreria de documentacion de swagger
 const swaggerUi = require("swagger-ui-express"); //Libreria de portal web de swagger
-
 //initialization
 app.use(cors());
 app.use(express.json());
