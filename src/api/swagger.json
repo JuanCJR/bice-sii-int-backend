@@ -7,10 +7,21 @@
   },
   "host": "localhost:3000",
   "basePath": "/api/v1",
+  "tags": [
+    {
+      "name": "Autenticacion",
+      "description": "Autenticacion en portal del SII"
+    },
+    {
+        "name": "CallBack",
+        "description":"Call back para autorizacion de autenticacion oauth2"
+      }
+  ],
   "paths": {
     "/auth": {
       "get": {
         "summary": "Redirecciona a portal del SII",
+        "tags": ["Autenticacion"],
         "responses": {
           "200": {
             "description": "OK"
@@ -21,6 +32,7 @@
     "/call-back": {
       "get": {
         "summary": "Peticion que atiende el call back de OAUTH2",
+        "tags": ["CallBack"],
         "parameters": [
           {
             "name": "codigo",
