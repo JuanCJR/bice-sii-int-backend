@@ -16,6 +16,5 @@ const { auth, callBack } = require("../controllers/auth.controller");
 router.route("/").get(auth);
 
 
-router.route("/call-back").get(callBack);
-
 module.exports = router;
+

@@ -1,0 +1,40 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "0.1.0",
+    "title": "BACKEND API SII",
+    "description": "Servicio backend para integracion con SII"
+  },
+  "host": "localhost:3000",
+  "basePath": "/api/v1",
+  "paths": {
+    "/auth": {
+      "get": {
+        "summary": "Redirecciona a portal del SII",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/call-back": {
+      "get": {
+        "summary": "Peticion que atiende el call back de OAUTH2",
+        "parameters": [
+          {
+            "name": "codigo",
+            "description": "Codigo para gestionar autorizacion",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  }
+}
